@@ -19,7 +19,11 @@ close.addEventListener('click', ()=> {
 const changeScreen = (el) => {
 
 }
-
+const pics = [
+    './images/icon-scissors.svg',
+    './images/icon-paper.svg',
+    './images/icon-rock.svg'
+]
 pick.forEach(element => {
     element.addEventListener('click',  (e)=>{
         const elem = e.target.src;
@@ -36,9 +40,19 @@ pick.forEach(element => {
         </div>
         </div>`
         const spa = document.querySelector('.space');
-        setTimeout(() => {
-            spa.innerHTML = `<img src='${elem}' class="chosen" id="${id}">`
-        }, 2000);
+        const num = Math.floor(Math.random()*3);
+        // setTimeout(() => {
+            spa.innerHTML = `<img src='${pics[num]}' class="chosen2" id="${num}">`
+        // }, 2000);
+        const click = document.querySelector('.chosen');
+        const click2 = document.querySelector('.chosen2');
+        if(click.src== 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-paper.svg' && click2.src == 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-rock.svg' || click.src== 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-scissors.svg' && click2.src == 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-paper.svg' || click.src== 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-rock.svg' && click2.src == 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-scissors.svg'){
+            console.log('YOU WIN!');
+            click.classList.add('win');
+        }else if(click.src== 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-paper.svg' && click2.src == 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-scissors.svg' || click.src== 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-scissors.svg' && click2.src == 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-rock.svg' || click.src== 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-rock.svg' && click2.src == 'file:///C:/Users/User/Desktop/rock-paper-scissors/images/icon-paper.svg'){
+            console.log('YOU LOSE!');
+            click2.classList.add('lose')
+        }
     });
 });
 

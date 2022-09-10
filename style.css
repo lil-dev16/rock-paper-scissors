@@ -138,7 +138,7 @@ body{
     color: white;
 font-weight: 700;
 }
-.chosen{
+.chosen, .chosen2{
     background-color: white;
     padding: 27px 32px;
     border-radius: 50%;  
